@@ -34,7 +34,7 @@
         @endif
     </div>
     <div class="image w-1/2 sm:w-full sm:pb-6 flex">
-        <img src="{{ $product->image }}?{{ $product->id }}" alt="Los Millonarios" class="w-3/4 mx-auto self-center">
+        <img src="{{ asset('storage/'.$product->image) }}?{{ $product->id }}" alt="Los Millonarios" class="w-3/4 mx-auto self-center">
     </div>
     <div class="w-1/2 sm:w-full flex flex-col justify-between sm:text-center">
         <div class="sm:h-24">

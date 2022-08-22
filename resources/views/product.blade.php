@@ -63,7 +63,7 @@
 
                     <div id="product-list" class="grid lg:grid-cols-2 gap-2">
                         <div class="image pb-9">
-                            <img src="{{ $product->image }}" alt="Los Millonarios" class="mx-auto self-center">
+                            <img src="{{ asset('storage/'.$product->image) }}" alt="Los Millonarios" class="mx-auto self-center">
                         </div>
                         <div class="flex flex-col justify-between text-center lg:text-left">
                             <div class="">

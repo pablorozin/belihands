@@ -119,7 +119,7 @@
                     No son juguete.
                 </p>
                 <div class="rounded-md">
-                    <a href="nosotros.html" class="inline-block px-4 py-3 uppercase tracking-wider border border-white text-base font-medium rounded-md text-white hover:text-beliyellow bg-transparent hover:bg-white md:py-4 md:text-lg md:px-10 transition ease-in-out hover:scale-110 duration-200">Conocenos mejor</a>
+                    <a href="{{ route('web.about_us') }}" class="inline-block px-4 py-3 uppercase tracking-wider border border-white text-base font-medium rounded-md text-white hover:text-beliyellow bg-transparent hover:bg-white md:py-4 md:text-lg md:px-10 transition ease-in-out hover:scale-110 duration-200">Conocenos mejor</a>
                 </div>
             </div>
         </div>

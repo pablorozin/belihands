@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,8 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/tienda', 'products')->name('web.products');
     Route::get('/tienda/{slug}', 'product')->name('web.product');
     Route::post('/contacto', 'contact')->name('web.contact');
+});
+
+Route::get('/link', function() {
+    Artisan::call('storage:link');
 });

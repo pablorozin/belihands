@@ -33,12 +33,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Pinocho01.'),
         ]);
 
-        User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'losbelihands@gmail.com',
-            'password' => Hash::make('Beli1044'),
-        ]);
-
         $typeBelihands = ProductType::factory()->create([
             'slug' => 'belihands',
             'name' => 'Belihands',
@@ -77,7 +71,6 @@ class DatabaseSeeder extends Seeder
             ]);
         }
         
-        /*
         for ($i=0; $i < 50; $i++) { 
             $name = fake()->name;
             $slug = Product::max('id') + 1 . '-' . str($name)->slug;
@@ -96,6 +89,5 @@ class DatabaseSeeder extends Seeder
                 'offer_price' => [1800, 1500, 1600, null, null, null, null][rand(0, 6)],
             ]);
         }
-        */
     }
 }
