@@ -16,6 +16,10 @@ class ProductCategory extends Model
         static::creating(function ($model) {
             $model->slug = ProductCategory::max('id') . '-' . str($model->name)->slug;
         });
+    
+        static::updating(function ($model) {
+            $model->slug = $model->id . '-' . str($model->name)->slug;
+        });
     }
 
     protected $guarded = [];

@@ -20,7 +20,9 @@ return new class extends Migration
             $table->integer('price');
             $table->text('description')->nullable();
             $table->text('presentation')->nullable();
-            $table->text('video_code')->nullable();
+            $table->string('video_code')->nullable();
+            $table->string('packaging_image')->nullable();
+            $table->string('size')->nullable();
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Artisan;
@@ -23,6 +24,29 @@ Route::controller(WebController::class)->group(function () {
     Route::post('/contacto', 'contact')->name('web.contact');
 });
 
-Route::get('/link', function() {
-    Artisan::call('storage:link');
+/*
+Route::get('/duplicate/2', function() {
+    Product::query()
+        ->where('product_type_id', 3)
+        ->where('product_category_id', 1)
+        ->get()
+        ->each(function ($product) {
+            $slug = Product::max('id') . '-' . str($product->name)->slug;
+
+            Product::create([
+                'is_active' => $product->is_active,
+                'product_type_id' => 2,
+                'product_category_id' => $product->product_category_id,
+                'slug' => $slug,
+                'name' => $product->name,
+                'code' => 'C'.substr($product->code,1),
+                'description' => str($product->description)->replace('Vinilo autoadhesivo troquelado', 'Vinilo con imán troquelado'),
+                'keywords' => $product->keywords,
+                'image' => $product->image,
+                'is_new' => 0,
+                'is_bestseller' => 0,
+                'offer_price' => null,
+            ]);
+        });
 });
+*/

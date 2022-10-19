@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\ProductResource\Pages;
 
-use App\Filament\Resources\ProductResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ProductResource;
 
 class ListProducts extends ListRecords
 {
@@ -16,4 +17,13 @@ class ListProducts extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+
+    protected function getTableQuery(): Builder 
+    {
+        $query = static::getResource()::getEloquentQuery();
+        
+        $query->orderBy('code');
+
+        return $query;
+    } 
 }

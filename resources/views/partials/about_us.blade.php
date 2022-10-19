@@ -40,7 +40,7 @@
         </div>
         <div class="pt-6 lg:pt-0 flex flex-col justify-center">
             <p class="text-base lg:text-lg pb-2 lg:pb-4">
-                Todo surge en el año 1990, producto de la combinación de varios elementos que se fueron mezclando y conformando la idea rectora del Proyecto.
+                Todo surge hace 30 años, producto de la combinación de varios elementos que se fueron mezclando y conformando la idea rectora del Proyecto.
             </p>
             <p class="text-base lg:text-lg pb-2 lg:pb-4">
                 En un principio todo nace sin ninguna pretensión y solo como un ejercicio de diseño que se fue desarrollando con el tiempo y que hasta hoy perdura.<br>

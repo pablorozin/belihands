@@ -13,7 +13,11 @@ class ProductType extends Model
         parent::boot();
     
         static::creating(function ($model) {
-            $model->slug = ProductType::max('id') + 1 . '-' . str($model->name)->slug;
+            $model->slug = ProductType::max('id') . '-' . str($model->name)->slug;
+        });
+    
+        static::updating(function ($model) {
+            $model->slug = $model->id . '-' . str($model->name)->slug;
         });
     }
 

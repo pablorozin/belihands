@@ -7,10 +7,11 @@ use App\Models\ProductType;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use App\Filament\Resources\ProductTypeResource\Pages;
-use Filament\Forms\Components\Textarea;
 
 class ProductTypeResource extends Resource
 {
@@ -35,6 +36,9 @@ class ProductTypeResource extends Resource
                     ->label('Presentación'),
                 TextInput::make('video_code')
                     ->label('Código de Youtube'),
+                FileUpload::make('packaging_image')
+                    ->label('Estuche')
+                    ->image(),
             ]);
     }
 

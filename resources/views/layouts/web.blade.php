@@ -89,6 +89,7 @@
 			modalContact : false,
 			openDropdown: false,
 			modalProduct: false,
+			modalPackaging: false,
 			modalMessage: true,
 		}"
 		@keydown.escape="modalMessage = false"

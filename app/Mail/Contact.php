@@ -20,6 +20,7 @@ class Contact extends Mailable
         public readonly string $name,
         public readonly string $email,
         public readonly ?string $phone,
+        public readonly ?string $comments,
         public readonly ?Product $product,
     )
     {

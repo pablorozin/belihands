@@ -19,6 +19,8 @@ class WebController extends WebBaseController
         $products = Product::query()
             ->active()
             ->limit(8)
+            ->orderByDesc('is_bestseller')
+            ->orderBy('code')
             ->get();
 
         return view('home', ['products' => $products]);
@@ -59,6 +61,7 @@ class WebController extends WebBaseController
 
                 return $q;
             })
+            ->orderBy('code')
             ->paginate(8);
 
         $products->appends([
@@ -117,6 +120,7 @@ class WebController extends WebBaseController
                 request()->name,
                 request()->email,
                 request()->phone,
+                request()->comments,
                 $product,
             ));
         } catch (\Throwable $th) {
@@ -129,6 +133,6 @@ class WebController extends WebBaseController
         return redirect()
             ->back()
             ->with('messageType', 'success')
-            ->with('message', 'Gracias por contactarnos, te estaremos respondiendo en breve!');
+            ->with('message', 'Gracias por contactarnos, te estaremos respondiendo a la brevedad.');
     }
 }

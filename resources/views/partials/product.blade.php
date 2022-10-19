@@ -1,6 +1,6 @@
 <a href="{{ $product->url }}" class="flex sm:flex-col justify-between relative rounded-md px-3 py-6 bg-white hover:shadow-lg border border-gray-200 transition ease-in-out hover:-translate-y-2">
     <div class="info absolute top-2 left-2">
-        @if ($product->is_bestseller)
+        @if ($product->is_new)
             <div class="bg-black p-1 rounded-md text-white flex uppercase text-xs tracking-tighter mb-1 pr-2">
                 <span class="material-icons text-sm mr-1">
                     star
@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        @if ($product->is_new)
+        @if ($product->is_bestseller)
             <div class="bg-belired p-1 rounded-md text-white flex uppercase text-xs tracking-tighter mb-1 pr-2">
                 <span class="material-icons text-sm mr-1">
                     local_fire_department

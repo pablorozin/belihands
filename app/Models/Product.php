@@ -16,6 +16,10 @@ class Product extends Model
         static::creating(function ($model) {
             $model->slug = Product::max('id') . '-' . str($model->name)->slug;
         });
+    
+        static::updating(function ($model) {
+            $model->slug = $model->id . '-' . str($model->name)->slug;
+        });
     }
 
     protected $guarded = [];

@@ -8,9 +8,9 @@
 </div>
 
 <footer class="bg-white">
-    <div class="container mx-auto px-4 lg:px-0 py-16 lg:py-24 grid lg:grid-cols-3 gap-8">
+    <div class="container mx-auto px-4 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-3 gap-8">
         <div class="text-center lg:text-left">
-            © 2022 <a href="index.html" class="text-belired hover:text-black font-bold uppercase">Los Bellihands®</a><br>
+            © 2022 <a href="{{ route('web.home') }}" class="text-belired hover:text-black font-bold uppercase">Los Bellihands®</a><br>
             Todos los derechos reservados.
         </div>
         <div class="text-center">

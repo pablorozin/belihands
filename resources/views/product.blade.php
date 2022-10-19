@@ -2,7 +2,7 @@
 
 @section('main')
     <section id="products" class="py-16 lg:py-24 bg-gray-100">
-        <div class="container mx-auto px-4 lg:px-0">
+        <div class="container mx-auto px-4 lg:px-8">
             @include('partials.sectionHeader', [
                 'title' => false,
                 'breadcrumbs' => [
@@ -24,10 +24,11 @@
                 @keydown.escape="modalProduct = false"
             >
                 @include('partials.popups.contact', ['product', $product])
+                @include('partials.popups.packaging', ['product', $product])
                 
                 <div class="flex sm:flex-col justify-between relative rounded-md p-9 md:p-20 bg-white border border-gray-200">
                     <div class="info absolute top-2 left-2">
-                        @if ($product->is_bestseller)
+                        @if ($product->is_new)
                             <div class="bg-black p-1 rounded-md text-white flex uppercase text-xs tracking-tighter mb-1 pr-2">
                                 <span class="material-icons text-sm mr-1">
                                     star
@@ -38,7 +39,7 @@
                             </div>
                         @endif
 
-                        @if ($product->is_new)
+                        @if ($product->is_bestseller)
                             <div class="bg-belired p-1 rounded-md text-white flex uppercase text-xs tracking-tighter mb-1 pr-2">
                                 <span class="material-icons text-sm mr-1">
                                     local_fire_department
@@ -91,7 +92,7 @@
                                         >
                                             <span class="material-icons mr-2">play_circle_filled</span>
                                             <span class="self-center">
-                                                Ver video "Así nace un Bellihand"
+                                                Ver video "Así nace un Belihand"
                                             </span>
                                         </a>
                                     </div>
@@ -103,10 +104,34 @@
                                     </div>
                                     <div class="presentation text-xs md:text-base pb-6 text-left">
                                         {!! nl2br($product->type->presentation) !!}
+
+                                        @if ($product->type->packaging_image)
+                                            <div class="description text-sm md:text-lg text-left">
+                                                <button
+                                                    x-on:click="modalPackaging = true"
+                                                    class="flex mt-4 text-belired hover:text-black"
+                                                >
+                                                    <span class="self-center">
+                                                        Ver el estuche
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        @endif
                                     </div>
                                 @endif
 
-                                <div class="price text-2xl md:text-4xl pb-9">
+                                @if ($product->description)
+                                    <div class="presentation text-xs md:text-base pb-3 font-bold text-left">
+                                        Información adicional
+                                    </div>
+                                    <div class="presentation text-xs md:text-base pb-6 text-left">
+                                        <p>
+                                            {!! nl2br($product->description) !!}
+                                        </p>
+                                    </div>
+                                @endif
+
+                                <div class="price text-2xl md:text-4xl">
                                     @if ($product->offer_price)
                                         ${{ $product->offer_price }} 
                     
@@ -116,8 +141,14 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="buttons">
-                                <button class="w-full lg:w-auto inline-block p-4 lg:py-6 lg:px-12 uppercase tracking-wider text-lg lg:text-2xl text-center font-medium rounded-md text-white bg-belired hover:bg-black md:py-4 md:text-lg md:px-10 transition ease-in-out hover:scale-110 duration-200" x-on:click="modalProduct = true">¡Lo Quiero!</button>
+
+                            <div class="buttons pt-9">
+                                <button 
+                                    class="w-full lg:w-auto inline-block p-4 lg:py-6 lg:px-12 uppercase tracking-wider text-lg lg:text-2xl text-center font-medium rounded-md text-white bg-belired hover:bg-black md:py-4 md:text-lg md:px-10 transition ease-in-out hover:scale-110 duration-200" 
+                                    x-on:click="modalProduct = true"
+                                >
+                                    ¡Lo Quiero!
+                                </button>
                             </div>
                         </div>
                     </div>

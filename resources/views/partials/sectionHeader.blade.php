@@ -1,6 +1,8 @@
 @if ($title)
     <div class="text-center text-4xl tracking-tight font-extrabold text-black sm:text-5xl lg:text-6xl pb-6 lg:pb-6">
-        <span class="block xl:inline">{{ $title }}</span>    
+        <span class="block xl:inline">
+            {{ $title }}
+        </span>    
     </div>
 @endif
 

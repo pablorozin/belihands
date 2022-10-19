@@ -1,5 +1,5 @@
 <nav 
-    class="px-4 py-3 fixed left-0 right-0 top-0 z-40"
+    class="px-4 lg:px-8 py-3 fixed left-0 right-0 top-0 z-40"
     @keydown.escape="openMenu = false"
     @click.outside="openMenu = false"
     :class="{ 

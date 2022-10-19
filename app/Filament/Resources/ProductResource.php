@@ -7,15 +7,17 @@ use App\Models\Product;
 use App\Models\ProductType;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
+use App\Models\ProductCategory;
 use Filament\Resources\Resource;
+use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
+use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ProductResource\Pages;
-use App\Models\ProductCategory;
 
 class ProductResource extends Resource
 {
@@ -72,11 +74,28 @@ class ProductResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->label('Nombre'),
+                TextColumn::make('type.name')
+                    ->label('Tipo'),
+                TextColumn::make('category.name')
+                    ->label('Categoría'),
                 TextColumn::make('code')
                     ->label('Código'),
             ])
             ->filters([
-                //
+                Filter::make('type')
+                    ->form([
+                        Select::make('product_type_id')
+                            ->label('Tipo')
+                            ->options(ProductType::all()->pluck('name', 'id'))
+                            ->searchable(),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['product_type_id'],
+                                fn (Builder $query, $product_type_id): Builder => $query->where('product_type_id', '>=', $product_type_id),
+                            );
+                    })
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -2,7 +2,7 @@
 
 @section('main')
     <section id="products" class="py-16 lg:py-24 bg-gray-100">
-        <div class="container mx-auto px-4 lg:px-0">
+        <div class="container mx-auto px-4 lg:px-8">
             @include('partials.sectionHeader', [
                 'title' => 'Tienda',
                 'breadcrumbs' => [
